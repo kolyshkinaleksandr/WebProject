@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15166539285020" configfile="/WebProject/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" x="48" y="192" id="pf15168815830091" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf15168815830092 pf15168815830093" path="/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="signUp.xhtml" x="264" y="60" id="pf15168815830094" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf15168815830095 pf15168815830096" inlinks="pf15168815830092" path="/signUp.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logIn.xhtml" x="264" y="336" id="pf15168815830097" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf15168815830098 pf15168815830099 pf151688158300910" inlinks="pf15168815830093" path="/logIn.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="user.xhtml" x="488" y="203" id="pf151688158301011" referenceLink="//@navigationRule.17/@fromViewId|" outlinks="pf151688158301012" inlinks="pf15168815830095 pf15168815830098" path="/user.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="error.xhtml" x="1008" y="84" id="pf151688158301013" referenceLink="//@navigationRule.18/@navigationCase.0/@toViewId|" inlinks="pf15168815830096 pf151688158300910 pf151688158301014 pf151688158301015" path="/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="administration.xhtml" x="629" y="516" id="pf151688158301016" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" outlinks="pf151688158301017 pf151688158301018" inlinks="pf15168815830099 pf151688158301019 pf151688158301020" path="/administration.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="insert.xhtml" x="216" y="516" id="pf151688158301021" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf151688158301019" inlinks="pf151688158301017" path="/insert.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="edit.xhtml" x="221" y="600" id="pf151688158301022" referenceLink="//@navigationRule.10/@fromViewId|" outlinks="pf151688158301020" inlinks="pf151688158301018" path="/edit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="success.xhtml" x="1202" y="406" id="pf151688158301023" referenceLink="//@navigationRule.16/@navigationCase.0/@toViewId|" outlinks="pf151688158301024 pf151688158301025 pf151688158301014" inlinks="pf151688158301026 pf151688158301025 pf151688158301027" path="/success.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="done.xhtml" x="1392" y="384" id="pf151688158301028" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" inlinks="pf151688158301024" path="/done.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="again.xhtml" x="986" y="301" id="pf151688158301029" referenceLink="//@navigationRule.18/@fromViewId|" outlinks="pf151688158301026 pf151688158301015" inlinks="pf151688158301030" path="/again.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="show.xhtml" x="660" y="384" id="pf151688158301031" referenceLink="//@navigationRule.17/@navigationCase.0/@toViewId|" outlinks="pf151688158301030 pf151688158301027" inlinks="pf151688158301012" path="/show.xhtml"/>
+  <links id="pf15168815830092" target="pf15168815830094" source="pf15168815830091" outcome="signUp" fromaction="#{mBean.signUp}"/>
+  <links id="pf15168815830093" target="pf15168815830097" source="pf15168815830091" outcome="logIn" fromaction="#{mBean.logIn}"/>
+  <links id="pf15168815830095" target="pf151688158301011" source="pf15168815830094" outcome="welcome" fromaction="#{mBean.insertUser}"/>
+  <links id="pf15168815830096" target="pf151688158301013" source="pf15168815830094" outcome="error" fromaction="#{mBean.insertUser}"/>
+  <links id="pf15168815830098" target="pf151688158301011" source="pf15168815830097" outcome="user" fromaction="#{mBean.checkUser}"/>
+  <links id="pf15168815830099" target="pf151688158301016" source="pf15168815830097" outcome="admin" fromaction="#{mBean.checkUser}"/>
+  <links id="pf151688158300910" target="pf151688158301013" source="pf15168815830097" outcome="error" fromaction="#{mBean.checkUser}"/>
+  <links id="pf151688158301017" target="pf151688158301021" source="pf151688158301016" outcome="insert"/>
+  <links id="pf151688158301019" target="pf151688158301016" source="pf151688158301021" outcome="administration" fromaction="#{mBean.addUser}"/>
+  <links id="pf151688158301018" target="pf151688158301022" source="pf151688158301016" outcome="edit" fromaction="#{mBean.editUser}"/>
+  <links id="pf151688158301020" target="pf151688158301016" source="pf151688158301022" outcome="administration" fromaction="#{mBean.updateUser}"/>
+  <links id="pf151688158301024" target="pf151688158301028" source="pf151688158301023" outcome="done" fromaction="#{Quiz.Answer}"/>
+  <links id="pf151688158301026" target="pf151688158301023" source="pf151688158301029" outcome="success" fromaction="#{Quiz.Answer}"/>
+  <links id="pf151688158301014" target="pf151688158301013" source="pf151688158301023" outcome="error" fromaction="#{Quiz.Answer}"/>
+  <links id="pf151688158301030" target="pf151688158301029" source="pf151688158301031" outcome="again" fromaction="#{Quiz.Answer}"/>
+  <links id="pf151688158301027" target="pf151688158301023" source="pf151688158301031" outcome="success" fromaction="#{Quiz.Answer}"/>
+  <links id="pf151688158301012" target="pf151688158301031" source="pf151688158301011" outcome="show"/>
+  <links id="pf151688158301015" target="pf151688158301013" source="pf151688158301029" outcome="error" fromaction="#{Quiz.Answer}"/>
+  <links id="pf151688158301025" target="pf151688158301023" source="pf151688158301023" outcome="success" fromaction="#{Quiz.Answer}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+</pageflow:Pageflow>
